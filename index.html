@@ -844,7 +844,6 @@
     </div>
   </div>
 </div>
-
 <!-- Карточка 32 -->
 <div class="flashcard" style="--front-bg: url('img/IMG_20250807_003500_987.jpg');" tabindex="0" aria-label="Flashcard Jet lag">
   <div class="flashcard-inner">
@@ -1397,7 +1396,7 @@
     </div>
     <div class="back-content" style="background-image: var(--front-bg);">
       <h2><span class="highlight">Travel tips</span></h2>
-      <p class="example">Example: She shared useful <span class="highlight">travel tips</span> for traveling on a budget.</p>
+      <p class="example">Example: She shared useful <span class="highlight">travel tips</span> for travelling on a budget.</p>
     </div>
   </div>
 </div>
@@ -1407,12 +1406,6 @@
   document.querySelectorAll('.flashcard').forEach(card => {
     card.addEventListener('click', () => {
       card.classList.toggle('flipped');
-    });
-    card.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        card.classList.toggle('flipped');
-      }
     });
   });
 </script>
