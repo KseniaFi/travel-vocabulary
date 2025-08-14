@@ -234,26 +234,18 @@
       vertical-align: bottom;
       height: 1.3em;
     }
-    .back-content {
-  background-color: rgba(20, 20, 20, 0.85); /* менее прозрачный, темный фон */
-  background-image: var(--front-bg);
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: multiply;
-
+    /* Задняя сторона карточки по умолчанию */
+.back-content {
+  background-color: rgba(255,255,255,0.07);
   backdrop-filter: blur(15px) saturate(1.8) brightness(0.8);
   -webkit-backdrop-filter: blur(15px) saturate(1.8) brightness(0.8);
-
   border: 2px solid rgba(255,110,199,0.4);
   box-shadow: 0 10px 35px rgba(255,110,199,0.4), inset 0 0 80px rgba(255,110,199,0.3);
-
   color: #ffaad3;
   text-shadow: 0 0 10px rgba(255,110,199,0.7), 0 2px 5px rgba(0,0,0,0.7);
   z-index: 20;
-  
-  opacity: 0;
-  pointer-events: none;
-
+  opacity: 0; /* Скрыта по умолчанию */
+  pointer-events: none; /* Игнорирует клики */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -263,17 +255,20 @@
   white-space: normal;
   word-wrap: break-word;
   transition: opacity 0.5s ease;
-
-  transform: rotateY(180deg); /* исправление зеркального отображения */
+  transform: rotateY(180deg); /* Исправление зеркального отображения */
 }
-    .flashcard.flipped .back-content {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .flashcard.flipped .front-content {
-      opacity: 0;
-      pointer-events: none;
-    }
+    
+/* Показываем заднюю сторону, когда карточка перевернута */
+.flashcard.flipped .back-content {
+  opacity: 1 !important; /* !important для приоритета */
+  pointer-events: auto !important;
+}
+
+/* Скрываем переднюю сторону, когда карточка перевернута */
+.flashcard.flipped .front-content {
+  opacity: 0;
+  pointer-events: none;
+}
     .back-content h2 {
       font-size: 2.2rem;
       font-weight: 900;
