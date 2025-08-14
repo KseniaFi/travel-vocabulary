@@ -1338,14 +1338,34 @@
     </div>
   </div>
 </div>
-  </div> <!-- Закрывает .flashcard-container -->
+   </div> <!-- закрываем flashcard-container -->
 
-<script>
-  document.querySelectorAll('.flashcard').forEach(card => {
-    card.addEventListener('click', () => {
-      card.classList.toggle('flipped');
+  <script>
+    // Разрешаем флипить только одну карточку одновременно
+    document.querySelectorAll('.flashcard').forEach(card => {
+      card.addEventListener('click', () => {
+        const isFlipped = card.classList.contains('flipped');
+        document.querySelectorAll('.flashcard.flipped').forEach(openCard => {
+          openCard.classList.remove('flipped');
+        });
+        if (!isFlipped) {
+          card.classList.add('flipped');
+        }
+      });
+      // Поддержка клавиш Enter и пробел для доступности
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const isFlipped = card.classList.contains('flipped');
+          document.querySelectorAll('.flashcard.flipped').forEach(openCard => {
+            openCard.classList.remove('flipped');
+          });
+          if (!isFlipped) {
+            card.classList.add('flipped');
+          }
+        }
+      });
     });
-  });
-</script>
+  </script>
 </body>
-</html>                                                                                        
+</html>
