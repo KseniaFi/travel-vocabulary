@@ -1395,19 +1395,18 @@
 </div>
   </div> <!-- Закрывает .flashcard-container -->
 
-  <script>
-    // Скрипт для переворота карточек по клику и с клавиатуры
-    document.querySelectorAll('.flashcard').forEach(card => {
-      card.addEventListener('click', () => {
-        card.classList.toggle('flipped');
-      });
-      card.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          card.classList.toggle('flipped');
-        }
-      });
+<script>
+  document.querySelectorAll('.flashcard').forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('flipped');
     });
-  </script>
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.classList.toggle('flipped');
+      }
+    });
+  });
+</script>
 </body>
 </html>                                                                                        
